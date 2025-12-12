@@ -103,7 +103,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
     setResumeText(schedule.resumeText);
     setJobDescription(schedule.jobDescription);
     setResponseStyle(schedule.responseStyle || 'Simple, Professional English');
-    setMaxLines(schedule.maxLines || 30);
+    setMaxLines(30);
     setExamples(schedule.examples ? [...schedule.examples] : []);
     setScheduledAt(schedule.scheduledAt || '');
     setDurationMinutes(schedule.durationMinutes || 60);
