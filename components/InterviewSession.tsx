@@ -196,13 +196,17 @@ export const InterviewSession: React.FC<InterviewSessionProps> = ({ preferences,
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
+    const base = latestSecondsRef.current || 0; // keep whatever was already used before this session
+
     const intervalId = window.setInterval(() => {
       const start = sessionStartRef.current;
       if (!start) return;
-      const delta = Math.floor((Date.now() - start) / 1000);
-      const total = latestSecondsRef.current + delta;
-      latestSecondsRef.current = total;
+
+      const delta = Math.floor((Date.now() - start) / 1000); // time since this session started
+      const total = base + delta; // correct total
+
       setCurrentAccumulatedSeconds(total);
+
       if (sessionDurationSeconds > 0 && total >= sessionDurationSeconds) {
         finalizeSession("Session duration completed", total);
       }
