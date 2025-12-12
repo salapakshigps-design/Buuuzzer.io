@@ -1,0 +1,7 @@
+{
+  "name": "Buuzzer.io",
+  "description": "A real-time AI assistant for job interviews that listens to questions and generates tailored responses based on your resume and job description.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
